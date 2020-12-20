@@ -173,4 +173,167 @@ value after applying the promotion code.*/
           }
         }
       }
+      
+      
+      // Implementing Promo class to attain independency, so that promo codes can be edited at later stages.
+
+      Public class Promo
+      {
+
+        public List<string> ActivePromolist=new List<string>();
+  
+        Public List<string> GetPromoList()
+        {
+          // Promo: buy 'n' items of a SkU for a fixed price
+          ActivePromolist.Insert(0,"NitemsFixedPrice");
+          // Promo: buy SKU 1 & SKU 2 for a fixed price
+          ActivePromolist.Insert(1,"SKU1SKU2FixedPrice");
+     
+          return Active promolist;
+        }
+
+        private string promocode;
+
+        public string Promocode
+        {
+         get {return promocode;}
+         set{promocode=value;}
+         }
+
+         public string ApplyPromo(string Promo, List<char> SKUid, List<int> UnitPrice, List<int> items)
+         {
+          int TotA, TotB, TotC, TotD, TotCD;
+          int Total;
+          string res="";
+          if (Promo == "NitemsFixedPrice")
+          {
+            // Apply promo for first SKU i.e 'A'
+     
+            If(SKUid.ElementAtOrDefault(0)!=null)
+            {
+              string SKUidA=SKUid[0].toString();
+              int UnitPriceA=UnitPrice[0];
+              int itemA=items[0];
+
+              if (itemsA == 0)
+              {
+                Tot [0] = 0;
+              }
+              else if(itemsA % 3 == 1)
+              {
+                int quo1 = itemsA / 3 ;
+                TotA = (quo1 × 130) + (1 × UnitPriceA);
+              }
+              else if(itemsA % 3 == 2)
+              {
+                int quo2 = itemsA / 3 ;
+                TotA = (quo2 × 130) + (2 × UnitPriceA);
+              }
+              else if(itemsA % 3 == 0)
+              {
+                int Quo3 = itemsA / 3;
+                TotA = (Quo3 * 130);
+              }
+           }
+           
+           //apply promo for second SKU i.e 'B'
+           If(SKUid.ElementAtOrDefault(1)!=null)
+           {
+             string SKUidB=SkUid[1].tostring();
+             int UnitpriceB=Unitprice[1];
+             int ItemB=items[1];
+
+             if (itemsB == 0)
+             {
+               TotB=0;
+             }
+             else if (itemsB % 2 == 1)
+             {
+               int Quo4=itemsB / 2;
+               TotB= (Quo4 × 45)+(1 × UnitpriceB);
+             }
+             else if (itemsB % 2 == 0)
+             {
+               int Quo5 = itemsB / 2;
+               TotalB = (Quo5 × 45);
+             }
+           }
+     //Total for 'C'
+     If(SKUid.ElementAtOrDefault (2)!=null)
+     {
+     string SKUidC = SKUid[2].toString();
+     int UnitpriceC = Unitprice[2];
+     int ItemC = items[2];
+     TotC = UnitPriceC × ItemC;
+     }
+     // Total for 'D'
+     If(SKUid.ElementAtOrDefault (3)!=null)
+     {
+      string SKUidD=SKUid[3].toString();
+      int UnitpriceD=Unitprice[3];
+      int ItemD=items[3];
+      TotD=unitpriceD × ItemD,
+     }
+     Total=TotA+TotB+TotC+TotD;
+     Ordervalue obj=new Ordervalue ();
+     obj.Ordertotal=Total;
+     res="successful";
+
+     Promocode="NitemsFixedPrice";
+     }
+     Else if(promo==SKU1SKU2FixedPrice")
+     {
+      If(SKUid.ElementAtOrDefault(0)!=null)
+      {
+        string SKUidA=SKUid[0].tostring();
+        int unitpriceA=unitprice[0];
+        int itemA = items [0];
+        TotA=unitpriceA × itemA;
+      }
+      If(SKUid.ElementAtOrDefault (1)!=null)
+      {
+       stringSKUidB=SKUid[1].tostring();
+       int unitpriceB=Unitprice[1];
+       int itemB=items[1];
+       TotB=unitpriceB × itemB;
+      }
+      if((SKUid.ElementAtOrDefault(2)==null))
+      {
+       TotC=0;
+       TotD=0;
+      }
+      If(SKUid.ElementAtOrDefault(3)==null)
+      {
+       string SKUidC=SKUid[2].tostring();
+       int UnitpriceC=Unitprice[2];
+       int itemC=items[2];
+       TotC=UnitpriceC×itemC:
+      }
+      Else
+      {
+       string SKUidC=SKUid[2].toString();
+       int unitpriceC=unitprice[2];
+       int itemC=items[2];
+       string SKUidD=SKUid[3];
+       int UnitpriceD= Unitprice[3];
+       int itemD= items[3];
+       If (ItemC > ItemD)
+       {
+        int not_match= itemC - itemD;
+        TotCD=(ItemD×30)+(not_match×UnitpriceC);
+       }
+       Else if( itemD > itemC)
+       {
+       int Not_match1=itemD-itemC;
+       TotCD=(itemC×30)+(Not_match1×UnitpriceD);
+       }
+
+       Total = TotA + TotB + TotC + TotCD;
+       Ordervalue obj1 = new OrderValue ();
+       Obj1.OrderTotal = Total ;
+       res = "Successful ";
+       Promocode = "SKU1SKU2FixedPrice";
+       }
+       return res;
+     }
 
