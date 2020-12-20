@@ -170,7 +170,7 @@ value after applying the promotion code.*/
 
            console.write(" input correct option\n");
            break;
-       }
-    }
-}
+          }
+        }
+      }
 
