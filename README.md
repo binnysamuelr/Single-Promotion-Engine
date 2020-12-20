@@ -336,4 +336,25 @@ value after applying the promotion code.*/
        }
        return res;
      }
+      
+      // Implementing Order Value Class to store total order Value and to calculate the total.
+
+      public class OrderValue 
+      {
+
+         private int ordertotal ;
+
+         public int OrderTotal 
+         {
+            get { return subtotal;}
+            set { subtotal=value;}
+         }
+
+         public int Gettot(List <char> SKUid, List <int> UnitPrice, List <int> items)
+         {
+           int Tot= (Unitprice [0] × items [0]) +  (Unitprice [1] × items [1]) +  (Unitprice [2] × items [2])+  (Unitprice [3] × items [3]);
+           return Tot; 
+         }
+
+      }
 
