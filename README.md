@@ -9,12 +9,21 @@ value after applying the promotion code.*/
 
 
 
-using System; 
 
-public class PromotionEngine
-{
-      public static void Main()
+
+
+
+
+
+
+
+      using System; 
+
+      public class PromotionEngine
       {
+
+        public static void Main()
+        {
           int TotalSKU, Opt, PromoOpt;
 
           // List of SKU id's
